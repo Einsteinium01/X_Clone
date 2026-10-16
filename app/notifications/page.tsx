@@ -58,14 +58,21 @@ export default function NotificationsPage() {
         });
     }
   }
+  const ownTimes = db.tweets
+    .filter((t) => t.authorId === you.id)
+    .map((t) => t.createdAt)
+    .sort((a, b) => b - a);
+  const anchorA = ownTimes[0] ?? 0;
   for (const u of db.users) {
-    if (u.following && u.id !== "u_you")
+    if (u.following && u.id !== "u_you") {
+      const i = notes.length;
       notes.push({
         id: `n_follow_${u.id}`,
         userId: u.id,
         kind: "follow",
-        when: Date.now() - 3_600_000,
+        when: anchorA > 0 ? anchorA - i * 60_000 : 0,
       });
+    }
   }
   notes.sort((a, b) => b.when - a.when);
 

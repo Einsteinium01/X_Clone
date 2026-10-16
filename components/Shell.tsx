@@ -1,7 +1,6 @@
 "use client";
 
 import { Suspense } from "react";
-import { StoreProvider } from "@/lib/store";
 import { Sidebar } from "./Sidebar";
 import { RightSidebar } from "./RightSidebar";
 import { MobileNav } from "./MobileNav";
@@ -32,9 +31,8 @@ function ShellFallback() {
 
 export function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <StoreProvider>
-      <Suspense fallback={<ShellFallback />}>
-        <div className="mx-auto flex w-full max-w-[1265px] justify-center">
+    <Suspense fallback={<ShellFallback />}>
+      <div className="mx-auto flex w-full max-w-[1265px] justify-center">
           <Sidebar />
           <main className="w-full min-w-0 flex-grow border-border md:max-w-[600px] md:flex-grow-0 md:border-x">
             {children}
@@ -43,6 +41,5 @@ export function Shell({ children }: { children: React.ReactNode }) {
         </div>
         <MobileNav />
       </Suspense>
-    </StoreProvider>
   );
 }

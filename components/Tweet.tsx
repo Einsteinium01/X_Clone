@@ -63,15 +63,13 @@ function Action({ icon, count, active, activeClass, hoverClass, label, onClick }
 }
 
 export function Tweet({ tweet }: { tweet: TweetType }) {
-  const { db, repliesOf, currentUserId, toggleLike, toggleRetweet, toggleBookmark, addTweet } =
-    useStore();
+  const { db, repliesOf, toggleLike, toggleRetweet, toggleBookmark } = useStore();
   const author = db.users.find((u) => u.id === tweet.authorId);
   const [replying, setReplying] = useState(false);
   const replyCount = repliesOf(tweet.id).length;
 
   if (!author) return null;
   const profileHref = `/profile/${author.handle}`;
-  const isOwn = author.id === currentUserId;
 
   return (
     <article className="border-b border-border px-4 py-3 transition-colors hover:bg-hover">

@@ -12,7 +12,6 @@ export function RightSidebar() {
   const { db } = useStore();
   const suggestions = db.users.filter((u) => u.id !== "u_you" && !u.following).slice(0, 3);
   if (db.users.length === 0) return <aside className="hidden w-[350px] shrink-0 pl-8 lg:block" />;
-  const me = db.users.find((u) => u.id === "u_you");
 
   return (
     <aside className="top-0 hidden h-dvh w-[350px] shrink-0 flex-col gap-4 overflow-y-auto py-1 pl-8 pr-2 lg:sticky lg:flex">
