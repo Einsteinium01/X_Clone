@@ -13,6 +13,10 @@
 ![MIT License](https://img.shields.io/badge/License-MIT-F91880?style=flat-square)
 ![Status](https://img.shields.io/badge/status-learning%20project-00BA7C?style=flat-square)
 
+<br/><br/>
+
+<img src="public/demo.gif" alt="𝕏 Clone Interface Showcase Demo" width="100%" />
+
 </div>
 
 ---
